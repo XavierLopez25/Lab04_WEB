@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+:root {
+  --bg-color: #feceab;
+  --bg-none: none;
+  --bee-color: #fed601;
+  --secondary-stripe-color: #915702;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+}
+
+.bee-border {
+  position: fixed;
+  width: 225px;
+  height: 190px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  border: 8px solid black;
+  scale: 350%;
+  z-index: 4;
+}
+
+.bee {
+  position: relative;
+  width: 225px;
+  height: 190px;
+  background-color: var(--bee-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  scale: 350%;
+  z-index: 1;
+}
+
+.bee::before {
+  font-family: "Montserrat", sans-serif;
+  content: "Bee from Geometry Dash's: B by Motleyorc";
+  font-size: 5px;
+  position: fixed;
+  bottom: -25px;
+  color: black;
+  font-weight: bold;
+}
+
+.bee::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  z-index: -2;
+  top: 10px;
+}
+
+.sting {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  scale: 100%;
+  border-left: 30px solid black;
+  left: 100%;
+  z-index: 1;
+}
+
+.bee > .stripe1,
+.bee > .stripe3,
+.bee > .stripe4,
+.bee > .stripe6,
+.bee > .mouth,
+.bee > .antenna {
+  position: fixed;
+  background-color: black;
+}
+
+.bee .antenna ~ .antenna-ball {
+  position: fixed;
+  background-color: black;
+}
+
+.bee > div:nth-child(9),
+.bee > div:nth-child(10) {
+  position: fixed;
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.bee > :first-child,
+.bee > :last-child {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background-color: white;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 15px;
+  scale: 125%;
+}
+
+.stripe1 + .stripe2,
+.stripe4 + .stripe5 {
+  position: fixed;
+  background-color: var(--secondary-stripe-color);
+}
+
+.stripe1 {
+  position: fixed;
+  width: 5%;
+  height: calc(100% + 10px);
+  left: 50%;
+}
+
+.stripe2 {
+  position: fixed;
+  width: 5%;
+  height: calc(100% + 5px); /* Adjusted for border */
+  background-color: var(--secondary-stripe-color);
+  left: 55%; /* Center stripe */
+}
+
+.stripe3 {
+  position: fixed;
+  width: 5%;
+  height: 100%; /* Adjusted for border */
+  left: 60%; /* Center stripe */
+}
+
+.stripe4 {
+  position: fixed;
+  width: 5%;
+  height: calc(100% - 20px); /* Adjusted for border */
+  left: 72.5%; /* Center stripe */
+}
+
+.stripe5 {
+  position: fixed;
+  width: 5%;
+  height: calc(100% - 30px); /* Adjusted for border */
+  background-color: var(--secondary-stripe-color);
+  left: 77.5%; /* Center stripe */
+}
+
+.stripe6 {
+  position: fixed;
+  width: 5%;
+  height: calc(100% - 45px); /* Adjusted for border */
+  left: 82.5%; /* Center stripe */
+}
+
+.eye.left {
+  left: 5%;
+  top: 45%;
+}
+.eye.right {
+  left: 25%;
+  top: 45%;
+}
+
+.mouth {
+  position: fixed;
+  width: 30px;
+  height: 8px;
+  border-radius: 25px;
+  left: 10%;
+}
+
+.antenna {
+  position: fixed;
+  width: 5px;
+  height: 30px;
+  top: -20px;
+  border-radius: 2px;
+}
+
+.antenna.left {
+  left: 13%;
+  top: 2%;
+  transform: rotate(-45deg);
+}
+.antenna.right {
+  left: 0%;
+  top: 10%;
+  transform: rotate(-70deg);
+}
+
+.bee .antenna-ball {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  top: -25px;
+  scale: 200%;
+}
+
+.antenna-ball {
+  position: fixed;
+}
+
+.antenna-ball.left {
+  left: 7%;
+  top: 2%;
+}
+.antenna-ball.right {
+  left: -7%;
+  top: 13%;
+}
+
+.rectangle.left {
+  background-color: white;
+  z-index: -5;
+  left: 5%;
+  top: -58%;
+}
+
+.rectangle.right {
+  background-color: whtite;
+  z-index: -4;
+  left: 40%;
+  top: -55%;
+}
+
+/* Bee eyes scale when hovering*/
+.bee:hover .eye {
+  transform: scale(1.5);
+}
+
+.bee {
+  transition: transform 4s ease, background-color 4s ease; /* Changing bee color with EASE for the hover animation */
+}
+
+.bee:hover {
+  transform: rotate(180deg); /*Making the bee rotate when hovered*/
+  background-color: #b3d9b3;
+}
+
+/*Mouth and eyes animation*/
+.bee:hover .eye,
+.bee:hover .mouth {
+  animation: eyeBlink 1.5s infinite;
+}
+
+@keyframes eyeBlink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
